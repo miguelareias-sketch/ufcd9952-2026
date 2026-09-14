@@ -1,0 +1,27 @@
+{
+    "name": "UFCD 9952 - PHP",
+
+    "image": "mcr.microsoft.com/devcontainers/php:3-8.4-bookworm",
+
+    "forwardPorts": [8000],
+
+    "portsAttributes": {
+        "8000": {
+            "label": "Aplicação UFCD 9952",
+            "onAutoForward": "openPreview"
+        }
+    },
+
+    "postAttachCommand": {
+        "servidor": "php -S 0.0.0.0:8000 -t missao1"
+    },
+
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "missao1/index.php",
+                "missao1/style.css"
+            ]
+        }
+    }
+}
