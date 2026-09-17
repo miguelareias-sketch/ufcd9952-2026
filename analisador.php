@@ -32,16 +32,13 @@ $mensagemErro = "";
 // ==========================================
 // 3. PROCESSAMENTO DO FORMULÁRIO (POST)
 // ==========================================
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['criar_ticket'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    //$titulo = $_POST['titulo'] ?? '';
-    //$descricao = $_POST['descricao'] ?? '';
+    // Regex para limpar espaços normais e espaços inquebráveis UTF-8
+    $titulo = preg_replace('/^[\s\x{00a0}]+|[\s\x{00a0}]+$/u', '', $_POST['titulo'] ?? '');
+    $descricao = preg_replace('/^[\s\x{00a0}]+|[\s\x{00a0}]+$/u', '', $_POST['descricao'] ?? '');
 
-    $titulo = trim ($_POST['titulo'] ?? '');
-    $descricao = trim ($_POST['descricao'] ?? '');
-
- //   if (!empty($titulo) && !empty($descricao)) {
- if ($titulo !== '' && $descricao !== '') {       
+    if ($titulo !== '' && $descricao !== '') {      
         $prioridade = "BAIXA";
         $sentimento = "Neutro";
         $respostaSugerida = "Obrigado pelo contacto. Vamos analisar o seu pedido.";
