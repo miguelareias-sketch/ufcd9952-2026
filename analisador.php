@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['criar_ticket'])) {
 
  //   if (!empty($titulo) && !empty($descricao)) {
  if ($titulo !== '' && $descricao !== '') {       
-        $prioridade = "MEDIA";
+        $prioridade = "BAIXA";
         $sentimento = "Neutro";
         $respostaSugerida = "Obrigado pelo contacto. Vamos analisar o seu pedido.";
 
